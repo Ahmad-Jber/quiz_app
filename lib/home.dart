@@ -1,9 +1,12 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home(this.switchScreen, {super.key});
+
+  final void Function() switchScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,12 @@ class Home extends StatelessWidget {
         children: [
           Image.asset(
             'assets/images/quiz-logo.png',
-            width: Platform.isWindows || Platform.isMacOS ? 400 : 300,
+            width: kIsWeb ||
+                    Platform.isWindows ||
+                    Platform.isMacOS ||
+                    Platform.isLinux
+                ? 400
+                : 300,
           ),
           const SizedBox(
             height: 50,
@@ -29,7 +37,7 @@ class Home extends StatelessWidget {
             height: 50,
           ),
           OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: switchScreen,
             icon: const Icon(
               Icons.arrow_right,
               size: 70,

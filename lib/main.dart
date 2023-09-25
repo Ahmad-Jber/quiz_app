@@ -1,31 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/home.dart';
+import 'package:quiz_app/quiz.dart';
 
 void main() {
   runApp(
-    const Application(),
+    const Quiz(),
   );
-}
-
-class Application extends StatelessWidget {
-  const Application({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.amber,
-                Colors.blueAccent,
-              ],
-            ),
-          ),
-          child: const Home(),
-        ),
-      ),
-    );
-  }
 }
